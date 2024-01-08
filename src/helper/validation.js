@@ -16,7 +16,16 @@ function checkId(data) {
 
 function IsValidUser(req, _res, next) {
   const { name, surname, birth, city, age } = req.body;
-
+  // eslint-disable-next-line no-prototype-builtins
+  if (!req.body.hasOwnProperty('name')) throw new Error('name is underfind');
+  // eslint-disable-next-line no-prototype-builtins
+  if (!req.body.hasOwnProperty('surname')) throw new Error('suname is underfind');
+  // eslint-disable-next-line no-prototype-builtins
+  if (!req.body.hasOwnProperty('city')) throw new Error('city is underfind');
+  // eslint-disable-next-line no-prototype-builtins
+  if (!req.body.hasOwnProperty('birth')) throw new Error('birth is underfind');
+  // eslint-disable-next-line no-prototype-builtins
+  if (!req.body.hasOwnProperty('age')) throw new Error('age is underfind');
   if (typeof name != 'string') throw new Error('type name not valid');
   if (typeof surname != 'string') throw new Error('type surname not valid');
   if (typeof city != 'string') throw new Error('type city not valid');
