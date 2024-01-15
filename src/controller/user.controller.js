@@ -9,7 +9,7 @@ route.post('/', IsValidUser, async (req, res) => {
     const data = await createUser(name, surname, birth, city, age);
     res.status(200).send(data);
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(404).send(error.message);
   }
 });
 
@@ -18,7 +18,7 @@ route.get('/', async (_req, res) => {
     const data = await getAllUser();
     res.status(200).send(data);
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(404).send(error.message);
   }
 });
 
@@ -28,7 +28,7 @@ route.get('/:id', IsValidUserId, async (req, res) => {
     const data = await getUserById(id);
     res.status(200).send(data);
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(404).send(error.message);
   }
 });
 
@@ -39,7 +39,7 @@ route.put('/:id/:info_id', IsValidUserId, IsValidUser, async (req, res) => {
     const data = await updateUser(id, name, surname, birth, city, age, info_id);
     res.status(200).send(data);
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(404).send(error.message);
   }
 });
 
@@ -49,7 +49,7 @@ route.delete('/:id', IsValidUserId, async (req, res) => {
     const data = await deleteUser(id);
     res.status(200).send(data);
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(404).send(error.message);
   }
 });
 
